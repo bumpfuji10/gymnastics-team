@@ -24,7 +24,7 @@ class TeamType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
             ],
             'gymnasts' => [
-                'type' => Type::listOf(GraphQL::type('Quest')),
+                'type' => Type::listOf(GraphQL::type('Gymnast')),
             ]
         ];
     }

@@ -22,7 +22,7 @@ class GymnastFactory extends Factory
     public function definition()
     {
         $teamIDs = Team::all()->pluck('id')->toArray();
-        // pluck(); Laravelの組み込みメソッド。指定したvalueのコレクションを生成できる。
+        // pluck(); Laravelの組み込みメソッド。指定したvalueを持つコレクションを生成できる。
         // ここではTeamモデルを全て取得し、valueが'id'のコレクションをarrayにぶち込んでいる。
 
         return [
