@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Team;
+use App\Models\Gymnast;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,13 +16,18 @@ class GymnastFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected $model = Gymnast::class;
+
     public function definition()
     {
         $teamIDs = Team::all()->pluck('id')->toArray();
+        // pluck(); Laravelの組み込みメソッド。指定したvalueを持つコレクションを生成できる。
+        // ここではTeamモデルを全て取得し、valueが'id'のコレクションをarrayにぶち込んでいる。
 
         return [
             'name' => $this->faker->name(),
-            'age' => $this->faker->rand(18, 28),
+            'age' => $this->faker->numberBetween(18, 28),
             'team_id' => $this->faker->randomElement($teamIDs)
         ];
     }
